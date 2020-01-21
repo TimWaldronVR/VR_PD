@@ -1,0 +1,69 @@
+Date:16/01/2020
+15:00 Uhr
+Tim Waldron
+
+/////////////////////////////////////////////////////////////////
+
+Parameters: 
+# SRanipal Framework
+# random 360° Videosphere
+# GazeRaySample (Tobii SDK)
+# Avatar_Shieh (Tobii SDK)
+# LSLOutputController (LSL Plugin)
+
+First and last ~15 seconds are for mounting HMD. Data expected to be corrupted and to be ignored.
+Movement in ~10 second intervals, 
+~45° single movement from NULL, 
+~90° total movement from min to max,
+STILL movement expected to have ~0-10° tolerance (head not fixated).
+RANDOM eye movement expected to be max +/- 55° from Head position and min at Head position (110° FOV = max. 55° each direction possible)
+
+/////////////////////////////////////////////////////////////////
+
+
+01-EyeRightRotateEulerXYZ-HeadLookLeftlookRight-10sek
+#Object: EyeRight
+#EulerAngles
+#Fixed Updates
+#Action: Head moves left-right-middle in ~10sec interval / Eyes RANDOM
+*Aim: isolate horizontal movement / does EyeRight measure view or head?
+
+
+02-EyeRightRotateEulerXYZ-HeadLookUpDown-10sek
+#Object: EyeRight
+#EulerAngles
+#Fixed Updates
+#Action: Head moves up-down-middle in ~10sec interval / Eyes RANDOM
+*Aim: isolate vertical movement / does EyeRight measure view or head?
+
+
+03-EyeRightRotateEulerXYZ-HeadNull-EyeLookLeftRight-10sek
+#Object: EyeRight
+#EulerAngles
+#Fixed Updates
+#Action: Head STILL / Eye moves left-middle-right in ~10sec interval
+*Aim: isolate horizontal movement / does EyeRight measure view?
+
+
+04-EyeRightRotateEulerXYZ-HeadNull-EyeLookUpDown-10sek
+#Object: EyeRight
+#EulerAngles
+#Fixed Updates
+#Action: Head STILL / Eye moves up-middle-down in ~10sec interval
+*Aim: isolate vertical movement / does EyeRight measure view?
+
+
+05-HeadComparison-RotationXYZ-LeftRight-10sec
+#Object: Head / Main Camera
+#EulerAngles
+#Fixed Updates
+#Action: Head moves left-right-middle in ~10sec interval / Eyes RANDOM
+*Aim: Is Head & Main Camera identical? 
+
+
+06-HeadComparison-RotationXYZ-UpDown-10sec
+#Object: Head / Main Camera
+#EulerAngles
+#Fixed Updates
+#Action: Head moves left-right-middle in ~10sec interval / Eyes RANDOM
+#Aim: Is Head & Main Camera identical? 
